@@ -1,0 +1,22 @@
+{
+  "name": "Progress Of Habits",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Google"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "notifications",
+    "offscreen",
+    "webRequest",
+     "webNavigation",
+     "alarms",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "serviceWorker.js"
+  }
+}

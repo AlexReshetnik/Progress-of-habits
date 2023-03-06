@@ -1,0 +1,11 @@
+.App {
+ 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}

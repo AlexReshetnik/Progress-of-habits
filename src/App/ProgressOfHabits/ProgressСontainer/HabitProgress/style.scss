@@ -1,0 +1,23 @@
+.HabitProgress {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    .item {
+        align-items: center;
+
+        padding: 7px;
+        .square {
+            height: 100%;
+
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.23);
+        }
+    }
+}

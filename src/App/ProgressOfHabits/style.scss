@@ -1,0 +1,58 @@
+.ProgressOfHabits {
+    position: relative;
+    min-height: 100vh;
+  
+    .TitleСontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        div {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .ProgressOfHabitscontainer {
+        padding-top: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5vh;
+    }
+}
+.hide {
+    
+    animation-name: hide;
+    animation-duration:4s;
+    animation-timing-function: cubic-bezier(0.05, 0.5, 0.1, 0.95);
+    animation-fill-mode: forwards;
+}
+@keyframes hide {
+    from {
+      
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+    to {padding-top: 100%;
+        padding-bottom: 0%;
+    }
+}
+
+.show {
+   
+    animation-name: show;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.05, 0.5, 0.1, 0.95);
+    animation-fill-mode: forwards;
+}
+@keyframes show {
+    from {
+        padding-top: 100%;
+        padding-bottom: 0%;
+    }
+    to {
+        padding-top: 0%;
+        padding-bottom: 100%;
+    }
+}

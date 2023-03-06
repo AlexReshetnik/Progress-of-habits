@@ -1,0 +1,41 @@
+.ContextMenu {
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.408);
+
+    background-color: white;
+    border-radius: 11px;
+    padding: 5px;
+    white-space: nowrap;
+    font-size: 0.7em;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.537);
+
+    button {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        white-space: nowrap;
+        word-spacing: 0px;
+        letter-spacing: 1.2px;
+        align-self: center;
+        text-align: start;
+        background-color: white;
+        border: 0;
+        margin: 2px 0px;
+        padding: 4px;
+        border-radius: 7px;
+        font-size: 1.5em;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        &:hover {
+            background-color: rgb(226, 226, 226);
+        }
+    }
+}
+.HexColorPicker {
+    position: fixed !important;
+   
+    z-index: 5;
+}

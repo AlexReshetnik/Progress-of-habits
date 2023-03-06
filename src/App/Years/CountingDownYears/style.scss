@@ -1,0 +1,65 @@
+.container {
+    position: relative;
+    margin-top: 40vh;
+    bottom: 2vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-family: "Newsreader", serif;
+   
+    .numbers {
+        align-self: center;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        height: min-content;
+        font-size: 15vw;
+        .num {
+            align-self: flex-end;
+            margin: 5px;
+            color: rgb(56, 56, 56);
+            font-size: 0.3em;
+        }
+        .n1,
+        .n2 {
+            height: 0.8em;
+            line-height: 1em;
+            font-size: 1em;
+        }
+        .n3 {
+            font-size: 0.2em;
+            color: rgb(72, 72, 72);
+        }
+        .n4 {
+            color: rgb(255, 0, 0);
+        }
+        .n5 {
+            color: orange;
+        }
+        .n6 {
+            color: rgb(255, 255, 0);
+        }
+        .n7 {
+            color: rgb(69, 207, 0);
+        }
+        .n8 {
+            color: rgb(0, 171, 228);
+        }
+        .n9 {
+            color: rgb(42, 0, 228);
+        }
+        .n10 {
+            color: rgb(95, 9, 223);
+        }
+        .n11 {
+            color: rgb(95, 9, 223);
+        }
+        .n12 {
+            color: rgb(95, 9, 223);
+        }
+        .n13 {
+            color: rgb(95, 9, 223);
+        }
+    }
+}
+

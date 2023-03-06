@@ -1,0 +1,18 @@
+.ScrollContainer {
+    width: 50vw;
+    height: min-content;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   
+    .box {
+        position: relative;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+       
+    }
+}

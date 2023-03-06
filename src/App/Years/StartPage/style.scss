@@ -1,0 +1,36 @@
+
+#startMeny {
+    *{
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 100;
+    }
+    color: #000000e4;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.5em;
+   
+    h1 {
+        font-weight: 100;
+        margin-bottom: 0px;
+        font-size:1em;
+    }
+    h2 {
+        font-weight: 100;
+        font-size:1em;
+        margin: 50px;
+        position: relative;
+        text-align: center;
+        width: 600px;
+        &::after {
+            font-size:0.4em;
+            content: "* in format 'yyyy-mm-dd'";
+            position: absolute;
+            top: 70px;
+            left: 280px;
+            color: rgb(72, 72, 72);
+        }
+    }
+}
