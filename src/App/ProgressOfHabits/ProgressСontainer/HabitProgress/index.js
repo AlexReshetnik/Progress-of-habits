@@ -1,70 +1,36 @@
-
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { memo, useMemo } from 'react';
 import createCalendar from '../createCalendar';
+import Item from './Item';
+
 import './style.scss';
-function HabitProgress({ item, view }) {
-    const dispatch = useDispatch()
-    const strictMode = useSelector(state => state.strictMode.mode)
+function HabitProgress({ item }) {
 
-
-    function onDoubleClickHandler(e) {
-
-        let target = e.target.localName == "img" ? e.target.parentElement : e.target
-        let day = new Date(+target.getAttribute('day')).setHours(0, 0, 0, 0)
-
-        if (strictMode === "strictModeTRUE") {
-            if (day !== new Date(Date.now()).setHours(0, 0, 0, 0)) return
+    function calc(array) {
+        let last = new Date(Date.now()).setHours(0, 0, 0, 0)
+        let count = array.find(i => i == last) ? 0 : 1
+        for (const day of array.sort((a, b) => b - a)) {
+            if (last - day > 86400000) {//1000*60*60*24
+                break
+            } else count++
+            last = day
         }
-
-        let activeItem = item.progres.find((el) => {
-            console.log(el + "  -  " + +target.getAttribute('day'))
-            return el == +target.getAttribute('day')
-        })
-
-        if (!activeItem) {
-            dispatch({ type: "DONEHABIT", day: day, title: item.title })
-        } else {
-            dispatch({ type: "NOTDONEHABIT", day: day, title: item.title })
-        }
-    }
-    function calendar(start) {
-        return createCalendar(start).map((dateCopy, i) => {
-
-            let activeItem = item.progres.find((el) => (
-                new Date(el).setHours(0, 0, 0, 0) === dateCopy.setHours(0, 0, 0, 0))
-            )
-
-            return (< div key={i} className="item" style={{
-                height: view.height,
-                width: view.width,
-                marginLeft: dateCopy.getDay() == 1 && view.marginLeft
-            }}
-            >
-                <div className="square"
-                    style={{
-
-
-                        border: `2.5px solid ${item.color}`
-                    }}
-                    onDoubleClick={onDoubleClickHandler}
-                    day={+dateCopy}
-                >
-                    {activeItem ? (<img src="check.png" alt="" width={23} />) : undefined}
-
-                </div>
-            </div >)
-
-        })
+        return count
     }
 
-
+    let count = useMemo(() => calc(item.progres), [item.progres.length])
     return (
         <div className='HabitProgress'>
-            {calendar(item.id)}
+            {createCalendar(item.id).map((dateCopy, i, arr) =>
+                <Item key={i}
+                    dateCopy={dateCopy}
+                    isBorder={i == arr.lengt || arr.length - i <= count}
+                    color={item.color}
+                    title={item.title}
+                    isActive={item.progres.find((el) => el == +dateCopy)}
+                />
+            )}
         </div>
-
     );
 }
 
-export default HabitProgress;
+export default memo(HabitProgress);

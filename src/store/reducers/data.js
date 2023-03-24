@@ -99,18 +99,15 @@ export const data = (state = defaultState, action) => {
 
         case DELETEHABIT:
             state.data = state.data.filter(i => i.title != action.target)
-            currentState = { ...state, mode: DELETEHABIT }
             break
 
-        case CHANGECOLOR:
-            state.data.forEach(i => {
-                if (i.title == action.target) {
-                    i.color = action.newColor
-                }
-            })
-            state.data = state.data.slice()
-            currentState = { ...state, mode: CHANGECOLOR }
-            break
+        case CHANGECOLOR: {
+            let index = state.data.findIndex(i => i.title == action.target)
+            state.data[index] = {
+                ...state.data[index],
+                color: action.newColor
+            }
+        } break
 
         case CREATEHABIT:
             state.data.push({
@@ -119,35 +116,27 @@ export const data = (state = defaultState, action) => {
                 progres: [],
                 color: action.color
             })
-            state.data = state.data.slice()
-            currentState = { ...state, mode: CREATEHABIT }
             break
 
-        case DONEHABIT:
-           
-            state.data.forEach(i => {
-                if (i.title == action.title) i.progres.push(action.day)
-            })
-            state.data = state.data.slice()
-            currentState = { ...state, mode: DONEHABIT }
-            break
-            
-        case NOTDONEHABIT:
-            state.data.forEach(i => {
-                if (i.title == action.title) {
-                    i.progres = i.progres.filter(l => l != action.day)
-                }
-            })
-            state.data = state.data.slice()
-            currentState = { ...state, mode: NOTDONEHABIT }
-            break
+        case DONEHABIT: {
+            let index = state.data.findIndex(i => i.title == action.title)
+            state.data[index] = {
+                ...state.data[index],
+                progres: [...state.data[index].progres, action.day]
+            }    
+        }break
 
-        default:
-
-            currentState = state
-            break
-
+        case NOTDONEHABIT: {
+            let index = state.data.findIndex(i => i.title == action.title)
+            state.data[index] = {
+                ...state.data[index],
+                progres: [...state.data[index].progres.filter(l => l != action.day)]
+            }
+        }break
     }
+    state.data = state.data.slice()
+    currentState = { ...state, mode: action.type }
+
     localStorage.setItem("data", JSON.stringify(state.data))
     sentMessage(state.data)
     return currentState

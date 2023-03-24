@@ -1,0 +1,21 @@
+.ResultContaiter {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.8em;
+    font-weight: 600;
+
+    & > * {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: center;
+        align-items: center;
+        span {
+            font-size: 0.4em;
+            display: flex;
+          
+          position: relative;
+          top: 3px;
+        }
+    }
+}

@@ -3,15 +3,16 @@ import HabitHeader from "./HabitHeader";
 import HabitProgress from "./HabitProgress";
 import ScrollContainer from "./ScrollContainer"
 import './style.scss';
-function ProgressСontainer({ view }) {
+function ProgressСontainer() {
     const data = useSelector(state => state.data.data)
+    
     return (
 
-        <ScrollContainer view={view}>
+        <ScrollContainer >
 
-            <HabitHeader view={view}/>
+            <HabitHeader />
 
-            {data.map(i => <HabitProgress view={view} key={i.id} item={i} />)}
+            {data.map(i => <HabitProgress key={i.id} item={i} />)}
 
         </ScrollContainer>
     );

@@ -4,12 +4,13 @@ import { startPageReducer } from "./reducers/startPageReducer"
 import { strictMode } from "./reducers/strictMode"
 import { data } from "./reducers/data"
 import { animProgressOfHabits } from "./reducers/animProgressOfHabits"
-
+import { view } from "./reducers/view"
 
 export const store = createStore(combineReducers({
     startPageReducer,
     strictMode,
     data,
-    animProgressOfHabits
+    animProgressOfHabits,
+    view
    
 }),composeWithDevTools())
