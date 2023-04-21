@@ -18,8 +18,8 @@ function ResultItem({ item }) {
 
             last = day
         }
-
-        return [count, daysCount + 1]
+       
+        return [count, Math.round(daysCount)+1]
     }, [item.progres.length])
     let [count, all] = calc
     return (
